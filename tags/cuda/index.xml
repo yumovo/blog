@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CUDA on Yumov0's Blog</title><link>https://blog.mlavie.buzz/tags/cuda/</link><description>Recent content in CUDA on Yumov0's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yu</copyright><lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mlavie.buzz/tags/cuda/index.xml" rel="self" type="application/rss+xml"/><item><title>CUDA11.6 + cuDNN8.4 + Anaconda installation in Ubuntu20.04</title><link>https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/</link><pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/</guid><description>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/CUDA.png" alt="Featured image of post CUDA11.6 + cuDNN8.4 + Anaconda installation in Ubuntu20.04" />&lt;h2 id="install-cuda-116">Install CUDA 11.6
+&lt;/h2>&lt;h3 id="download-cuda">Download CUDA
+&lt;/h3>&lt;p>Click this &lt;a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener"
+>link&lt;/a> and find the version you want. Here I chose CUDA Toolkit 11.6.0.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/CUDA-Version.png"
+width="1260"
+height="833"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="CUDA version"
+class="gallery-image"
+data-flex-grow="151"
+data-flex-basis="363px"
+>&lt;/p>
+&lt;h3 id="installation">Installation
+&lt;/h3>&lt;p>Follow the installation instuction, run commands in Terminal.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands1.png"
+width="600"
+height="295"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands1_hua73f1d7a67d08d70ce7555d8bc23c5f2_173826_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands1_hua73f1d7a67d08d70ce7555d8bc23c5f2_173826_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="203"
+data-flex-basis="488px"
+>&lt;/p>
+&lt;p>As running the second command, just confirm &amp;lsquo;Continue&amp;rsquo;.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands2.png"
+width="600"
+height="395"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands2_hub5079549792b06a52eb0c77e387202f9_38153_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/comands2_hub5079549792b06a52eb0c77e387202f9_38153_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="151"
+data-flex-basis="364px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/3.png"
+width="600"
+height="390"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/3_hu1433665a135a34c450e8a3cb5f1d0213_114035_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/3_hu1433665a135a34c450e8a3cb5f1d0213_114035_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="153"
+data-flex-basis="369px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/4.png"
+width="600"
+height="393"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/4_hu312888c37093d30ca07c995e817a91fa_49333_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/4_hu312888c37093d30ca07c995e817a91fa_49333_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="152"
+data-flex-basis="366px"
+>&lt;/p>
+&lt;p>Due to the warning above, we cancel the driver option, and install. Before that, I&amp;rsquo;ve tried to uninstall driver and re-install it cause I thought it was the version confliction of driver cause the warning. Thus CUDA was already installed, which is why this show up:&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/5.png"
+width="600"
+height="394"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/5_huca251ceecdc2cb84f418ccfaff3e9f95_29075_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/5_huca251ceecdc2cb84f418ccfaff3e9f95_29075_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="152"
+data-flex-basis="365px"
+>&lt;/p>
+&lt;p>Confirm &amp;lsquo;yes&amp;rsquo; and CUDA is installed!&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/6.png"
+width="600"
+height="329"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/6_hub968a88cdc4e05ad25515bd55a3ec503_135309_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/6_hub968a88cdc4e05ad25515bd55a3ec503_135309_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="182"
+data-flex-basis="437px"
+>&lt;/p>
+&lt;h3 id="set-path">Set path
+&lt;/h3>&lt;p>The final step is set path according to the Summary in the last pic.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;# CUDA Soft Link&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export PATH=/usr/local/cuda-11.6/bin${PATH:+:${PATH}}&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bashrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="check-if-cuda-is-successfully-installed">Check if CUDA is successfully installed
+&lt;/h3>&lt;p>Run &amp;rsquo;nvcc -V&amp;rsquo;.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/7.png"
+width="600"
+height="179"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/7_hu8668a7af7023bd73deea2718b43c327f_97920_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/7_hu8668a7af7023bd73deea2718b43c327f_97920_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="335"
+data-flex-basis="804px"
+>&lt;/p>
+&lt;p>That means a YES.&lt;/p>
+&lt;h2 id="install-cudnn84">Install cuDNN8.4
+&lt;/h2>&lt;h3 id="download-cudnn">Download Cudnn
+&lt;/h3>&lt;p>Click &lt;a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener"
+>here&lt;/a> and find the version you want. (Needs to sign up) Here I chose cuDNN v8.4.0.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/cuDNN%20versions.png"
+loading="lazy"
+alt="cuDNN versions"
+>&lt;/p>
+&lt;h3 id="installation-1">Installation
+&lt;/h3>&lt;h4 id="1tar-file-installation">1.Tar File Installation
+&lt;/h4>&lt;p>Decompress tar file, run the commands below to copy files into the folder where CUDA11.6 at.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.6/include
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.6/lib64
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod a+r /usr/local/cuda-11.6/include/cudnn.h /usr/local/cuda-11.6/lib64/libcudnn*
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2debian-local-installation">2.Debian Local Installation
+&lt;/h4>&lt;p>I downloaded .deb file. Navigate to your downloads directory containing the cuDNN Debian local installer file. Replace X.Y and 8.x.x.x with your specific CUDA and cuDNN versions before issuing the following commands.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Enable the local repository.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i cudnn-local-repo-&lt;span class="si">${&lt;/span>&lt;span class="nv">distro&lt;/span>&lt;span class="si">}&lt;/span>-8.x.x.x_1.0-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Import the CUDA GPG key.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo cp /var/cudnn-local-repo-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Refresh the repository metadata.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install the runtime library+developer library+code samples.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install &lt;span class="nv">libcudnn8&lt;/span>&lt;span class="o">=&lt;/span>8.x.x.x-1+cudaX.Y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install libcudnn8-dev&lt;span class="o">=&lt;/span>8.x.x.x-1+cudaX.Y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install libcudnn8-samples&lt;span class="o">=&lt;/span>8.x.x.x-1+cudaX.Y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/8.png"
+width="600"
+height="343"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/8_hu6c1c7ce2f1fbbfe2b913fb67f39d059e_202766_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/8_hu6c1c7ce2f1fbbfe2b913fb67f39d059e_202766_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="419px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/9.png"
+width="600"
+height="145"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/9_huec8a41b244b5940beee045a0fbb0f8ce_116850_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/9_huec8a41b244b5940beee045a0fbb0f8ce_116850_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="413"
+data-flex-basis="993px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/10.png"
+width="600"
+height="248"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/10_hu6d191c787d40249d2a0b47819f602c98_130199_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/10_hu6d191c787d40249d2a0b47819f602c98_130199_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="241"
+data-flex-basis="580px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/11.png"
+width="600"
+height="282"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/11_hucf2f3456e30d42d02f3c0e994c0eb2bc_157489_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/11_hucf2f3456e30d42d02f3c0e994c0eb2bc_157489_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="212"
+data-flex-basis="510px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/12.png"
+width="600"
+height="254"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/12_hu81a2e1f72f3895a67d7d3742e0e603ac_142109_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/12_hu81a2e1f72f3895a67d7d3742e0e603ac_142109_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="236"
+data-flex-basis="566px"
+>&lt;/p>
+&lt;p>Feels like this way used &lt;strong>so&lt;/strong> &lt;strong>many disk space&lt;/strong>. Don&amp;rsquo;t know why.&lt;/p>
+&lt;h3 id="verifying-the-install">Verifying the Install
+&lt;/h3>&lt;p>To verify that cuDNN is installed and is running properly, compile the mnistCUDNN sample located in the /usr/src/cudnn&lt;em>samples&lt;/em>v8 directory in the Debian file.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cp -r /usr/src/cudnn_samples_v8/ &lt;span class="nv">$HOME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="nv">$HOME&lt;/span>/cudnn_samples_v8/mnistCUDNN
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Compile the mnistCUDNN sample.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">make clean &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> make
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Run the mnistCUDNN sample.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./mnistCUDNN
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here maybe needs reboot. While compiling sample, there was a &lt;em>&lt;strong>fatal error&lt;/strong>&lt;/em>:&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/13.png"
+width="600"
+height="240"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/13_hue8c2fb69da36aa736b91f28d0d5622b6_82042_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/13_hue8c2fb69da36aa736b91f28d0d5622b6_82042_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="250"
+data-flex-basis="600px"
+>&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt-get install libfreeimage3 libfreeimage-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/14.png"
+width="600"
+height="180"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/14_hufd73eb9e7461e8c930a89aa3c80929f8_73721_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/14_hufd73eb9e7461e8c930a89aa3c80929f8_73721_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="333"
+data-flex-basis="800px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/15.png"
+width="731"
+height="394"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/15_hud49e1c2ee83e13f39f7af4dee4844738_73799_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/15_hud49e1c2ee83e13f39f7af4dee4844738_73799_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="185"
+data-flex-basis="445px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/16.png"
+width="600"
+height="181"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/16_huce4351edd1049c88731bd5092a71ce7f_69372_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/16_huce4351edd1049c88731bd5092a71ce7f_69372_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="331"
+data-flex-basis="795px"
+>&lt;/p>
+&lt;p>When you see &amp;lsquo;Test passed!&amp;rsquo;, cuDNN is properly installed and running on your Linux system.&lt;/p>
+&lt;h2 id="install-anaconda">Install Anaconda
+&lt;/h2>&lt;p>&lt;a class="link" href="https://www.anaconda.com/download" target="_blank" rel="noopener"
+>Here&lt;/a> to download Anaconda. Then bash the .sh file you just downloaded.Following the instruction it gives you.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/17.png"
+width="600"
+height="171"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/17_hu83d111376b491e10e9b4eb5af26acc39_56229_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/17_hu83d111376b491e10e9b4eb5af26acc39_56229_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="350"
+data-flex-basis="842px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/18.png"
+width="600"
+height="130"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/18_hu87a3fc8a28e79833b2bc9016f3f084c5_48869_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/18_hu87a3fc8a28e79833b2bc9016f3f084c5_48869_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="461"
+data-flex-basis="1107px"
+>&lt;/p>
+&lt;p>AND I set this to false. All done. It&amp;rsquo;s quiet easy.&lt;/p>
+&lt;hr>
+&lt;p>References:&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux" target="_blank" rel="noopener"
+>https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://cyfeng.science/2020/05/02/ubuntu-install-nvidia-driver-cuda-cudnn-suits/" target="_blank" rel="noopener"
+>https://cyfeng.science/2020/05/02/ubuntu-install-nvidia-driver-cuda-cudnn-suits/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.cnblogs.com/klchang/p/14353384.html" target="_blank" rel="noopener"
+>https://www.cnblogs.com/klchang/p/14353384.html&lt;/a>&lt;/p></description></item></channel></rss>

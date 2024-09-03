@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4591&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Install CUDA 11.6 Download CUDA Click this\u00a0link\u00a0and find the version you want. Here I chose CUDA Toolkit 11.6.0. Installation Follow the installation instuction, run commands in Terminal. As running the second command, just confirm &lsquo;Continue&rsquo;. Due to the warning above, we cancel the driver option, and install. Before that, I&rsquo;ve tried to uninstall driver and re-install it cause I thought it was the version confliction of driver cause the warning.">
+<title>Ubuntu20.04 CUDA11.6&#43;cuDNN8.4&#43;Anaconda installation</title>
+
+<link rel='canonical' href='http://localhost:4591/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/'>
+
+<link rel="stylesheet" href="/scss/style.min.d02c970d3977bfbcb37b46ea82233d408cf6a4d3d6a641b4021d2b72635f9047.css"><meta property='og:title' content="Ubuntu20.04 CUDA11.6+cuDNN8.4+Anaconda installation">
+<meta property='og:description' content="Install CUDA 11.6 Download CUDA Click this\u00a0link\u00a0and find the version you want. Here I chose CUDA Toolkit 11.6.0. Installation Follow the installation instuction, run commands in Terminal. As running the second command, just confirm &lsquo;Continue&rsquo;. Due to the warning above, we cancel the driver option, and install. Before that, I&rsquo;ve tried to uninstall driver and re-install it cause I thought it was the version confliction of driver cause the warning.">
+<meta property='og:url' content='http://localhost:4591/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/'>
+<meta property='og:site_name' content='Yumov0&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Installation' /><meta property='article:tag' content='CUDA' /><meta property='article:published_time' content='2023-06-23T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-06-23T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:4591/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version.png' />
+<meta name="twitter:title" content="Ubuntu20.04 CUDA11.6+cuDNN8.4+Anaconda installation">
+<meta name="twitter:description" content="Install CUDA 11.6 Download CUDA Click this\u00a0link\u00a0and find the version you want. Here I chose CUDA Toolkit 11.6.0. Installation Follow the installation instuction, run commands in Terminal. As running the second command, just confirm &lsquo;Continue&rsquo;. Due to the warning above, we cancel the driver option, and install. Before that, I&rsquo;ve tried to uninstall driver and re-install it cause I thought it was the version confliction of driver cause the warning."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:4591/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version.png' />
+    <link rel="shortcut icon" href="/favicon_black.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#install-cuda-116">Install CUDA 11.6</a>
+      <ol>
+        <li><a href="#download-cuda">Download CUDA</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#set-path">Set path</a></li>
+        <li><a href="#check-if-cuda-is-successfully-installed">Check if CUDA is successfully installed</a></li>
+      </ol>
+    </li>
+    <li><a href="#install-cudnn84">Install cuDNN8.4</a>
+      <ol>
+        <li><a href="#download-cudnn">Download Cudnn</a></li>
+        <li><a href="#installation-1">Installation</a>
+          <ol>
+            <li><a href="#1tar-file-installation">1.Tar File Installation</a></li>
+            <li><a href="#2debian-local-installation">2.Debian Local Installation</a></li>
+          </ol>
+        </li>
+        <li><a href="#verifying-the-install">Verifying the Install</a></li>
+      </ol>
+    </li>
+    <li><a href="#install-anaconda">Install Anaconda</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/">
+                <img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_800x0_resize_box_3.png"
+                        srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_800x0_resize_box_3.png 800w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="529" 
+                        loading="lazy"
+                        alt="Featured image of post Ubuntu20.04 CUDA11.6&#43;cuDNN8.4&#43;Anaconda installation" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/">Ubuntu20.04 CUDA11.6&#43;cuDNN8.4&#43;Anaconda installation</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 23, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="install-cuda-116">Install CUDA 11.6
+</h2><h3 id="download-cuda">Download CUDA
+</h3><p>Click this <a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive"  target="_blank" rel="noopener"
+    >link</a> and find the version you want. Here I chose CUDA Toolkit 11.6.0.</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version.png"
+	width="1260"
+	height="833"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/CUDA-Version_hu003d78fd5acc193e9c7ff3d71296ca77_95970_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="CUDA version"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="363px"
+	
+></p>
+<h3 id="installation">Installation
+</h3><p>Follow the installation instuction, run commands in Terminal.</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands1.png"
+	width="600"
+	height="295"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands1_hua73f1d7a67d08d70ce7555d8bc23c5f2_173826_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands1_hua73f1d7a67d08d70ce7555d8bc23c5f2_173826_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="488px"
+	
+></p>
+<p>As running the second command, just confirm &lsquo;Continue&rsquo;.</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands2.png"
+	width="600"
+	height="395"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands2_hub5079549792b06a52eb0c77e387202f9_38153_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/comands2_hub5079549792b06a52eb0c77e387202f9_38153_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/3.png"
+	width="600"
+	height="390"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/3_hu1433665a135a34c450e8a3cb5f1d0213_114035_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/3_hu1433665a135a34c450e8a3cb5f1d0213_114035_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="369px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/4.png"
+	width="600"
+	height="393"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/4_hu312888c37093d30ca07c995e817a91fa_49333_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/4_hu312888c37093d30ca07c995e817a91fa_49333_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="366px"
+	
+></p>
+<p>Due to the warning above, we cancel the driver option, and install. Before that, I&rsquo;ve tried to uninstall driver and re-install it cause I thought it was the version confliction of driver cause the warning. Thus CUDA was already installed, which is why this show up:</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/5.png"
+	width="600"
+	height="394"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/5_huca251ceecdc2cb84f418ccfaff3e9f95_29075_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/5_huca251ceecdc2cb84f418ccfaff3e9f95_29075_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<p>Confirm &lsquo;yes&rsquo; and CUDA is installed!</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/6.png"
+	width="600"
+	height="329"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/6_hub968a88cdc4e05ad25515bd55a3ec503_135309_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/6_hub968a88cdc4e05ad25515bd55a3ec503_135309_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="437px"
+	
+></p>
+<h3 id="set-path">Set path
+</h3><p>The final step is set path according to the Summary in the last pic.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;# CUDA Soft Link&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/cuda-11.6/bin${PATH:+:${PATH}}&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></div><h3 id="check-if-cuda-is-successfully-installed">Check if CUDA is successfully installed
+</h3><p>Run &rsquo;nvcc -V&rsquo;.</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/7.png"
+	width="600"
+	height="179"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/7_hu8668a7af7023bd73deea2718b43c327f_97920_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/7_hu8668a7af7023bd73deea2718b43c327f_97920_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="335"
+		data-flex-basis="804px"
+	
+></p>
+<p>That means a YES.</p>
+<h2 id="install-cudnn84">Install cuDNN8.4
+</h2><h3 id="download-cudnn">Download Cudnn
+</h3><p>Click <a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive"  target="_blank" rel="noopener"
+    >here</a> and find the version you want. (Needs to sign up) Here I chose cuDNN v8.4.0.</p>
+<p><img src="/cuDNN%20versions.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cuDNN versions"
+	
+	
+></p>
+<h3 id="installation-1">Installation
+</h3><h4 id="1tar-file-installation">1.Tar File Installation
+</h4><p>Decompress tar file, run the commands below to copy files into the folder where CUDA11.6 at.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.6/include
+</span></span><span class="line"><span class="cl">sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.6/lib64
+</span></span><span class="line"><span class="cl">sudo chmod a+r /usr/local/cuda-11.6/include/cudnn.h /usr/local/cuda-11.6/lib64/libcudnn*
+</span></span></code></pre></div><h4 id="2debian-local-installation">2.Debian Local Installation
+</h4><p>I downloaded .deb file. Navigate to your downloads directory containing the cuDNN Debian local installer file. Replace X.Y and 8.x.x.x with your specific CUDA and cuDNN versions before issuing the following commands.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Enable the local repository.</span>
+</span></span><span class="line"><span class="cl">sudo dpkg -i cudnn-local-repo-<span class="si">${</span><span class="nv">distro</span><span class="si">}</span>-8.x.x.x_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl"><span class="c1"># Import the CUDA GPG key.</span>
+</span></span><span class="line"><span class="cl">sudo cp /var/cudnn-local-repo-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl"><span class="c1"># Refresh the repository metadata.</span>
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the runtime library+developer library+code samples.</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install <span class="nv">libcudnn8</span><span class="o">=</span>8.x.x.x-1+cudaX.Y
+</span></span><span class="line"><span class="cl">sudo apt-get install libcudnn8-dev<span class="o">=</span>8.x.x.x-1+cudaX.Y
+</span></span><span class="line"><span class="cl">sudo apt-get install libcudnn8-samples<span class="o">=</span>8.x.x.x-1+cudaX.Y
+</span></span></code></pre></div><p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/8.png"
+	width="600"
+	height="343"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/8_hu6c1c7ce2f1fbbfe2b913fb67f39d059e_202766_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/8_hu6c1c7ce2f1fbbfe2b913fb67f39d059e_202766_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/9.png"
+	width="600"
+	height="145"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/9_huec8a41b244b5940beee045a0fbb0f8ce_116850_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/9_huec8a41b244b5940beee045a0fbb0f8ce_116850_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="413"
+		data-flex-basis="993px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/10.png"
+	width="600"
+	height="248"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/10_hu6d191c787d40249d2a0b47819f602c98_130199_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/10_hu6d191c787d40249d2a0b47819f602c98_130199_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="241"
+		data-flex-basis="580px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/11.png"
+	width="600"
+	height="282"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/11_hucf2f3456e30d42d02f3c0e994c0eb2bc_157489_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/11_hucf2f3456e30d42d02f3c0e994c0eb2bc_157489_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="510px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/12.png"
+	width="600"
+	height="254"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/12_hu81a2e1f72f3895a67d7d3742e0e603ac_142109_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/12_hu81a2e1f72f3895a67d7d3742e0e603ac_142109_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="236"
+		data-flex-basis="566px"
+	
+></p>
+<p>Feels like this way used <strong>so</strong> <strong>many disk space</strong>. Don&rsquo;t know why.</p>
+<h3 id="verifying-the-install">Verifying the Install
+</h3><p>To verify that cuDNN is installed and is running properly, compile the mnistCUDNN sample located in the /usr/src/cudnn<em>samples</em>v8 directory in the Debian file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cp -r /usr/src/cudnn_samples_v8/ <span class="nv">$HOME</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span>  <span class="nv">$HOME</span>/cudnn_samples_v8/mnistCUDNN
+</span></span><span class="line"><span class="cl"><span class="c1"># Compile the mnistCUDNN sample.</span>
+</span></span><span class="line"><span class="cl">make clean <span class="o">&amp;&amp;</span> make
+</span></span><span class="line"><span class="cl"><span class="c1"># Run the mnistCUDNN sample.</span>
+</span></span><span class="line"><span class="cl">./mnistCUDNN
+</span></span></code></pre></div><p>Here maybe needs reboot. While compiling sample, there was a <em><strong>fatal error</strong></em>:</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/13.png"
+	width="600"
+	height="240"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/13_hue8c2fb69da36aa736b91f28d0d5622b6_82042_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/13_hue8c2fb69da36aa736b91f28d0d5622b6_82042_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="250"
+		data-flex-basis="600px"
+	
+></p>
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install libfreeimage3 libfreeimage-dev
+</span></span></code></pre></div><p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/14.png"
+	width="600"
+	height="180"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/14_hufd73eb9e7461e8c930a89aa3c80929f8_73721_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/14_hufd73eb9e7461e8c930a89aa3c80929f8_73721_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="333"
+		data-flex-basis="800px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/15.png"
+	width="731"
+	height="394"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/15_hud49e1c2ee83e13f39f7af4dee4844738_73799_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/15_hud49e1c2ee83e13f39f7af4dee4844738_73799_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="445px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/16.png"
+	width="600"
+	height="181"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/16_huce4351edd1049c88731bd5092a71ce7f_69372_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/16_huce4351edd1049c88731bd5092a71ce7f_69372_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="331"
+		data-flex-basis="795px"
+	
+></p>
+<p>When you see &lsquo;Test passed!&rsquo;, cuDNN is properly installed and running on your Linux system.</p>
+<h2 id="install-anaconda">Install Anaconda
+</h2><p><a class="link" href="https://www.anaconda.com/download"  target="_blank" rel="noopener"
+    >Here</a> to download Anaconda. Then bash the .sh file you just downloaded.Following the instruction it gives you.</p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/17.png"
+	width="600"
+	height="171"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/17_hu83d111376b491e10e9b4eb5af26acc39_56229_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/17_hu83d111376b491e10e9b4eb5af26acc39_56229_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="350"
+		data-flex-basis="842px"
+	
+></p>
+<p><img src="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/18.png"
+	width="600"
+	height="130"
+	srcset="/p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/18_hu87a3fc8a28e79833b2bc9016f3f084c5_48869_480x0_resize_box_3.png 480w, /p/ubuntu20.04-cuda11.6-cudnn8.4-anaconda-installation/18_hu87a3fc8a28e79833b2bc9016f3f084c5_48869_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="461"
+		data-flex-basis="1107px"
+	
+></p>
+<p>AND I set this to false. All done. It&rsquo;s quiet easy.</p>
+<hr>
+<p>References:</p>
+<p><a class="link" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux"  target="_blank" rel="noopener"
+    >https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux</a></p>
+<p><a class="link" href="https://cyfeng.science/2020/05/02/ubuntu-install-nvidia-driver-cuda-cudnn-suits/"  target="_blank" rel="noopener"
+    >https://cyfeng.science/2020/05/02/ubuntu-install-nvidia-driver-cuda-cudnn-suits/</a></p>
+<p><a class="link" href="https://www.cnblogs.com/klchang/p/14353384.html"  target="_blank" rel="noopener"
+    >https://www.cnblogs.com/klchang/p/14353384.html</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/installation/">Installation</a>
+        
+            <a href="/tags/cuda/">CUDA</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Yu
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

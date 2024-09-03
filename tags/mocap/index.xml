@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MoCap on Yumov0's Blog</title><link>https://blog.mlavie.buzz/tags/mocap/</link><description>Recent content in MoCap on Yumov0's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yu</copyright><lastBuildDate>Sun, 01 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mlavie.buzz/tags/mocap/index.xml" rel="self" type="application/rss+xml"/><item><title>About BVH</title><link>https://blog.mlavie.buzz/p/about-bvh/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/p/about-bvh/</guid><description>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/bvh-visual.jpg" alt="Featured image of post About BVH" />&lt;p>When I was going to animate 3d joints to different characters to visualize some motions, I found that most of methods use bvh/fbx format. Not sure about the possibility so I check on the structure of bvh.&lt;/p>
+&lt;h1 id="bvh-structure">.bvh Structure
+&lt;/h1>&lt;p>A BVH (Bounding Volume Hierarchy) is a &lt;b>tree&lt;/b> structure on a set of geometric objects. It is widely used in animation.(Blender etc.)
+And the file contains ASCII text. There has 2 parts in total: ROOT, MOTION.&lt;/p>
+&lt;h2 id="hierarchy">HIERARCHY
+&lt;/h2>&lt;p>HIERARCHY is the HEAD keyword of .bvh file. Here is the BVH skeletal structure:&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/bvh-structure.png"
+width="767"
+height="345"
+srcset="https://blog.mlavie.buzz/p/about-bvh/bvh-structure_huec2ad22b1018e88bd344014b7ce3e289_95664_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/about-bvh/bvh-structure_huec2ad22b1018e88bd344014b7ce3e289_95664_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="structure"
+class="gallery-image"
+data-flex-grow="222"
+data-flex-basis="533px"
+>&lt;/p>
+&lt;h2 id="root">ROOT
+&lt;/h2>&lt;p>The &lt;b>first part&lt;/b> of a BVH file identifies the Hips joint as the ROOT, which is to say it has no parent-joint. Below the ROOT section in the structure are JOINT sections, each containing information that specifies the location of the skeletal joint relative to its parent-joint. The relative location specifications for a parent-joint and its child-joint makes it possible to work out the length of the &lt;b>bone&lt;/b> between the two joints. Where a joint has no child-joint, it is linked to an End Site section.
+The CHANNELS are for processing the time-framed sequence of translation and/or rotational co-ordinates provided in the second part of the BVH file.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/root.png"
+width="705"
+height="463"
+srcset="https://blog.mlavie.buzz/p/about-bvh/root_hubaeae308685dd7be75f18f5058d10f0f_46434_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/about-bvh/root_hubaeae308685dd7be75f18f5058d10f0f_46434_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="root"
+class="gallery-image"
+data-flex-grow="152"
+data-flex-basis="365px"
+>&lt;/p>
+&lt;h2 id="motion">MOTION
+&lt;/h2>&lt;p>It is followed by information specifying, first, the number of &lt;b>FRAMES&lt;/b>; second, the sampling rate per second after the keyword &lt;b>FRAME TIME&lt;/b>; and third, a number of lines corresponding to the number of FRAMES, each line providing the tranlation and/or rotation co-ordinates to be processed according to the CHANNELS specifications in the first part of the file.&lt;/p>
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/motion-file.png"
+width="790"
+height="479"
+srcset="https://blog.mlavie.buzz/p/about-bvh/motion-file_hua9df1197302bf845a5023b9f35b248c0_200105_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/about-bvh/motion-file_hua9df1197302bf845a5023b9f35b248c0_200105_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="motion-file"
+class="gallery-image"
+data-flex-grow="164"
+data-flex-basis="395px"
+>&lt;/p>
+&lt;hr>
+&lt;h2 id="can-3d-joint-coordinates-convert-to-bvh">Can 3d joint coordinates convert to BVH?
+&lt;/h2>&lt;p>Possible. But BVH requires joint angles, not (only) 3-D keypoints, so it&amp;rsquo;s not trivially possible.
+I found a method: &lt;a href="https://github.com/KevinLTT/video2bvh" target="_blank" rel="nofollow">video2bvh&lt;/a>, which realized it. Not sure about the quality but worth a try.&lt;/p></description></item></channel></rss>
