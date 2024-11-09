@@ -93,9 +93,15 @@ data-flex-basis="804px"
 &lt;/h2>&lt;h3 id="download-cudnn">Download Cudnn
 &lt;/h3>&lt;p>Click &lt;a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener"
 >here&lt;/a> and find the version you want. (Needs to sign up) Here I chose cuDNN v8.4.0.&lt;/p>
-&lt;p>&lt;img src="https://blog.mlavie.buzz/cuDNN%20versions.png"
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions.png"
+width="600"
+height="265"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions_huf2a7727d88a0393f54387857c84978ff_42041_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions_huf2a7727d88a0393f54387857c84978ff_42041_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="cuDNN versions"
+alt="cuDNN version"
+class="gallery-image"
+data-flex-grow="226"
+data-flex-basis="543px"
 >&lt;/p>
 &lt;h3 id="installation-1">Installation
 &lt;/h3>&lt;h4 id="1tar-file-installation">1.Tar File Installation

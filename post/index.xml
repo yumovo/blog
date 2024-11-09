@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yumov0's Blog</title><link>https://blog.mlavie.buzz/post/</link><description>Recent content in Posts on Yumov0's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yu</copyright><lastBuildDate>Sun, 01 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mlavie.buzz/post/index.xml" rel="self" type="application/rss+xml"/><item><title>About BVH</title><link>https://blog.mlavie.buzz/p/about-bvh/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/p/about-bvh/</guid><description>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/bvh-visual.jpg" alt="Featured image of post About BVH" />&lt;p>When I was going to animate 3d joints to different characters to visualize some motions, I found that most of methods use bvh/fbx format. Not sure about the possibility so I check on the structure of bvh.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yumov0's Blog</title><link>https://blog.mlavie.buzz/post/</link><description>Recent content in Posts on Yumov0's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yu</copyright><lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mlavie.buzz/post/index.xml" rel="self" type="application/rss+xml"/><item><title>About BVH</title><link>https://blog.mlavie.buzz/p/about-bvh/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/p/about-bvh/</guid><description>&lt;img src="https://blog.mlavie.buzz/p/about-bvh/bvh-visual.jpg" alt="Featured image of post About BVH" />&lt;p>When I was going to animate 3d joints to different characters to visualize some motions, I found that most of methods use bvh/fbx format. Not sure about the possibility so I check on the structure of bvh.&lt;/p>
 &lt;h1 id="bvh-structure">.bvh Structure
 &lt;/h1>&lt;p>A BVH (Bounding Volume Hierarchy) is a &lt;b>tree&lt;/b> structure on a set of geometric objects. It is widely used in animation.(Blender etc.)
 And the file contains ASCII text. There has 2 parts in total: ROOT, MOTION.&lt;/p>
@@ -137,9 +137,15 @@ data-flex-basis="804px"
 &lt;/h2>&lt;h3 id="download-cudnn">Download Cudnn
 &lt;/h3>&lt;p>Click &lt;a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener"
 >here&lt;/a> and find the version you want. (Needs to sign up) Here I chose cuDNN v8.4.0.&lt;/p>
-&lt;p>&lt;img src="https://blog.mlavie.buzz/cuDNN%20versions.png"
+&lt;p>&lt;img src="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions.png"
+width="600"
+height="265"
+srcset="https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions_huf2a7727d88a0393f54387857c84978ff_42041_480x0_resize_box_3.png 480w, https://blog.mlavie.buzz/p/cuda11.6--cudnn8.4--anaconda-installation-in-ubuntu20.04/cuDNN-versions_huf2a7727d88a0393f54387857c84978ff_42041_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="cuDNN versions"
+alt="cuDNN version"
+class="gallery-image"
+data-flex-grow="226"
+data-flex-basis="543px"
 >&lt;/p>
 &lt;h3 id="installation-1">Installation
 &lt;/h3>&lt;h4 id="1tar-file-installation">1.Tar File Installation

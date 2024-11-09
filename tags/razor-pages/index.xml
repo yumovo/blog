@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Razor Pages on Yumov0's Blog</title><link>https://blog.mlavie.buzz/tags/razor-pages/</link><description>Recent content in Razor Pages on Yumov0's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yu</copyright><lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mlavie.buzz/tags/razor-pages/index.xml" rel="self" type="application/rss+xml"/><item><title>About Razor Pages in ASP.NET Core</title><link>https://blog.mlavie.buzz/post/2024/razorpages/</link><pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/post/2024/razorpages/</guid><description>&lt;img src="https://blog.mlavie.buzz/image.png" alt="Featured image of post About Razor Pages in ASP.NET Core" />&lt;h1 id="razer-pages">Razer Pages
+&lt;/h1>&lt;p>&lt;strong>Razor Pages&lt;/strong> is a framework in &lt;a class="link" href="http://ASP.NET" target="_blank" rel="noopener"
+>ASP.NET&lt;/a> Core aimed at simplifying page-based web application development. It uses Razor synatx to combine HTML and C# code, and each page has a paired model file(a .cshtml view and a .cshtml.cs code-behind) to keep UI and business logic together.&lt;/p>
+&lt;p>Razor Pages offer a more streamlined approach, making them a good choice for content-driven applications like content management systems or personal website. This structure is also more beginner-friendly compared to &lt;a class="link" href="http://ASP.NET" target="_blank" rel="noopener"
+>ASP.NET&lt;/a> MVC’s traditional approach.&lt;/p>
+&lt;img src="image%201.png" title="" alt="Image1" data-align="center">
+&lt;img src="image2.png" title="" alt="Image2" data-align="center">
+&lt;h2 id="basic-structure">Basic Structure
+&lt;/h2>&lt;p>Each page in Razor Pages is represented by a .cshtml for UI and a .cshtml.cs for page logic.&lt;/p>
+&lt;ol>
+&lt;li>Page File(.cshtml): This is the view template that contains HTML and embedded C# for displaying data.&lt;/li>
+&lt;li>Page Model(.cshtml.cs): This acts as the page’s code-behind file, handling request, business logic and data retrieval.&lt;/li>
+&lt;/ol>
+&lt;h3 id="project-structure">Project Structure
+&lt;/h3>&lt;p>In a typical Razor Pages project, pages are located under the &lt;strong>Pages&lt;/strong> folder, with a structure like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="n">MyRazorApp&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|--&lt;/span> &lt;span class="n">Pages&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|&lt;/span> &lt;span class="o">|--&lt;/span> &lt;span class="n">Index.cshtml&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Main&lt;/span> &lt;span class="n">page&lt;/span> &lt;span class="n">file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|&lt;/span> &lt;span class="o">|--&lt;/span> &lt;span class="n">Index.cshtml&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">cs&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Main&lt;/span> &lt;span class="n">page&lt;/span> &lt;span class="n">model&lt;/span> &lt;span class="n">file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|&lt;/span> &lt;span class="o">|--&lt;/span> &lt;span class="n">Contact&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Contact&lt;/span> &lt;span class="n">page&lt;/span> &lt;span class="n">folder&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|--&lt;/span> &lt;span class="n">Contact.cshtml&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Contact&lt;/span> &lt;span class="n">page&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|--&lt;/span> &lt;span class="n">Contact.cshtml&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">cs&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Contact&lt;/span> &lt;span class="n">page&lt;/span> &lt;span class="n">model&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|--&lt;/span> &lt;span class="n">Startup.cs&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Configuration&lt;/span> &lt;span class="n">file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">|--&lt;/span> &lt;span class="n">Program.cs&lt;/span> &lt;span class="o">#&lt;/span> &lt;span class="n">Application&lt;/span> &lt;span class="n">entry&lt;/span> &lt;span class="n">point&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="razor-syntax-overview">Razor Syntax Overview
+&lt;/h2>&lt;p>Razor syntax uses @ symbol to embed C# code directly in HTML.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">@{
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> var currentDate = DateTime.Now;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Today is: @currentDate&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="data-binding">Data Binding
+&lt;/h3>&lt;p>Data can be directly accessed from the Page Model in .cshtml view.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">@model MyRazorApp.Pages.IndexModel
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Welcome, @Model.Username!&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Your User ID is: @Model.UserId&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-razor-pages-work">How Razor Pages Work
+&lt;/h2>&lt;p>Each page has its own &lt;strong>Razor Page&lt;/strong> pair, with the .cshtml file for UI and .cshtml.cs file(Page Model) for logic.&lt;/p>
+&lt;ol>
+&lt;li>When a user requests a page like /index, the request routes to the IndexModel.&lt;/li>
+&lt;li>The Page Model method(OnGet(), OnPost(), etc.) handles the request logic.&lt;/li>
+&lt;li>The .cshtml view uses the model data to render the page, which is returned to the client.&lt;/li>
+&lt;/ol>
+&lt;h2 id="when-to-use-razor-pages">When to use Razor Pages
+&lt;/h2>&lt;ul>
+&lt;li>Suitable for page-based web apps, like imformation sites.&lt;/li>
+&lt;li>Ideal for small to medium-sized project that needs rapid development.&lt;/li>
+&lt;/ul>
+&lt;p>In summary, Razor Pages are especially useful for simpler, content-focused applications or project that requires faster setup and less complexity than MVC.&lt;/p></description></item></channel></rss>

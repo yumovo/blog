@@ -20,7 +20,7 @@
 &lt;/ul>
 &lt;p>I&amp;rsquo;m always curious and eager to learn, so you&amp;rsquo;ll also see a mix of other topics that intrigue me, from technology and coding to personal reflections and life lessons.&lt;/p>
 &lt;h3 id="get-in-touch">Get in Touch
-&lt;/h3>&lt;p>If you&amp;rsquo;d like to connect or have any questions, feel free to reach out to me at &lt;a class="link" href="mailto:mosiyu@bsu.edu" >mosiyu@bsu.edu&lt;/a> . I&amp;rsquo;m always open to discussions, collaborations, or just a friendly chat.&lt;/p>
+&lt;/h3>&lt;p>If you&amp;rsquo;d like to connect or have any questions, feel free to reach out to me at &lt;a class="link" href="mailto:mosiyu@bsu.edu.cn" >mosiyu@bsu.edu.cn&lt;/a> . I&amp;rsquo;m always open to discussions, collaborations, or just a friendly chat.&lt;/p>
 &lt;p>Thanks for stopping by!&lt;/p></description></item><item><title>Archives</title><link>https://blog.mlavie.buzz/archives/</link><pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/archives/</guid><description/></item><item><title>Links</title><link>https://blog.mlavie.buzz/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.mlavie.buzz/links/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
 &lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
