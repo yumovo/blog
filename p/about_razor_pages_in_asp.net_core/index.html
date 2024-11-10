@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=3987&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Razor Pages is a framework in ASP.NET Core aimed at simplifying page-based web application development. It uses Razor synatx to combine HTML and C# code, and each page has a paired model file(a .cshtml view and a .cshtml.cs code-behind) to keep UI and business logic together. Razor Pages offer a more streamlined approach, making them a good choice for content-driven applications like content management systems or personal website. This structure is also more beginner-friendly compared to ASP.">
+<title>About_Razor_Pages_in_ASP.NET_Core</title>
+
+<link rel='canonical' href='http://localhost:3987/p/about_razor_pages_in_asp.net_core/'>
+
+<link rel="stylesheet" href="/scss/style.min.d02c970d3977bfbcb37b46ea82233d408cf6a4d3d6a641b4021d2b72635f9047.css"><meta property='og:title' content="About_Razor_Pages_in_ASP.NET_Core">
+<meta property='og:description' content="Razor Pages is a framework in ASP.NET Core aimed at simplifying page-based web application development. It uses Razor synatx to combine HTML and C# code, and each page has a paired model file(a .cshtml view and a .cshtml.cs code-behind) to keep UI and business logic together. Razor Pages offer a more streamlined approach, making them a good choice for content-driven applications like content management systems or personal website. This structure is also more beginner-friendly compared to ASP.">
+<meta property='og:url' content='http://localhost:3987/p/about_razor_pages_in_asp.net_core/'>
+<meta property='og:site_name' content='Yumov0&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ASP.NET' /><meta property='article:tag' content='.NET' /><meta property='article:tag' content='Razor Pages' /><meta property='article:tag' content='Razor' /><meta property='article:published_time' content='2024-11-09T17:45:20&#43;08:00'/><meta property='article:modified_time' content='2024-11-09T17:45:20&#43;08:00'/><meta property='og:image' content='http://localhost:3987/p/about_razor_pages_in_asp.net_core/image.png' />
+<meta name="twitter:title" content="About_Razor_Pages_in_ASP.NET_Core">
+<meta name="twitter:description" content="Razor Pages is a framework in ASP.NET Core aimed at simplifying page-based web application development. It uses Razor synatx to combine HTML and C# code, and each page has a paired model file(a .cshtml view and a .cshtml.cs code-behind) to keep UI and business logic together. Razor Pages offer a more streamlined approach, making them a good choice for content-driven applications like content management systems or personal website. This structure is also more beginner-friendly compared to ASP."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:3987/p/about_razor_pages_in_asp.net_core/image.png' />
+    <link rel="shortcut icon" href="/favicon_black.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#basic-structure">Basic Structure</a>
+      <ol>
+        <li><a href="#project-structure">Project Structure</a></li>
+      </ol>
+    </li>
+    <li><a href="#razor-syntax-overview">Razor Syntax Overview</a>
+      <ol>
+        <li><a href="#data-binding">Data Binding</a></li>
+      </ol>
+    </li>
+    <li><a href="#how-razor-pages-work">How Razor Pages Work</a></li>
+    <li><a href="#when-to-use-razor-pages">When to use Razor Pages</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/about_razor_pages_in_asp.net_core/">
+                <img src="/p/about_razor_pages_in_asp.net_core/image_hu7064723f2d5db08aaf4ae3f16a5eeb3d_365452_800x0_resize_box_3.png"
+                        srcset="/p/about_razor_pages_in_asp.net_core/image_hu7064723f2d5db08aaf4ae3f16a5eeb3d_365452_800x0_resize_box_3.png 800w, /p/about_razor_pages_in_asp.net_core/image_hu7064723f2d5db08aaf4ae3f16a5eeb3d_365452_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post About_Razor_Pages_in_ASP.NET_Core" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/about_razor_pages_in_asp.net_core/">About_Razor_Pages_in_ASP.NET_Core</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 09, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><strong>Razor Pages</strong> is a framework in <a class="link" href="http://ASP.NET"  target="_blank" rel="noopener"
+    >ASP.NET</a> Core aimed at simplifying page-based web application development. It uses Razor synatx to combine HTML and C# code, and each page has a paired model file(a .cshtml view and a .cshtml.cs code-behind) to keep UI and business logic together.</p>
+<p>Razor Pages offer a more streamlined approach, making them a good choice for content-driven applications like content management systems or personal website. This structure is also more beginner-friendly compared to <a class="link" href="http://ASP.NET"  target="_blank" rel="noopener"
+    >ASP.NET</a> MVC’s traditional approach.</p>
+<img src="image%201.png" title="" alt="Image1" data-align="center">
+<img src="image2.png" title="" alt="Image2" data-align="center">
+<h2 id="basic-structure">Basic Structure
+</h2><p>Each page in Razor Pages is represented by a .cshtml for UI and a .cshtml.cs for page logic.</p>
+<ol>
+<li>Page File(.cshtml): This is the view template that contains HTML and embedded C# for displaying data.</li>
+<li>Page Model(.cshtml.cs): This acts as the page’s code-behind file, handling request, business logic and data retrieval.</li>
+</ol>
+<h3 id="project-structure">Project Structure
+</h3><p>In a typical Razor Pages project, pages are located under the <strong>Pages</strong> folder, with a structure like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="n">MyRazorApp</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">|--</span> <span class="n">Pages</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="o">|--</span> <span class="n">Index.cshtml</span>         <span class="o">#</span> <span class="n">Main</span> <span class="n">page</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="o">|--</span> <span class="n">Index.cshtml</span><span class="p">.</span><span class="n">cs</span>       <span class="o">#</span> <span class="n">Main</span> <span class="n">page</span> <span class="n">model</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>        <span class="o">|--</span> <span class="n">Contact</span><span class="o">/</span>               <span class="o">#</span> <span class="n">Contact</span> <span class="n">page</span> <span class="n">folder</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>        <span class="o">|</span>   <span class="o">|--</span> <span class="n">Contact.cshtml</span>       <span class="o">#</span> <span class="n">Contact</span> <span class="n">page</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>        <span class="o">|</span>   <span class="o">|--</span> <span class="n">Contact.cshtml</span><span class="p">.</span><span class="n">cs</span>    <span class="o">#</span> <span class="n">Contact</span> <span class="n">page</span> <span class="n">model</span>
+</span></span><span class="line"><span class="cl"><span class="o">|--</span> <span class="n">Startup.cs</span>               <span class="o">#</span> <span class="n">Configuration</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl"><span class="o">|--</span> <span class="n">Program.cs</span>               <span class="o">#</span> <span class="n">Application</span> <span class="n">entry</span> <span class="n">point</span>
+</span></span></code></pre></div><h2 id="razor-syntax-overview">Razor Syntax Overview
+</h2><p>Razor syntax uses @ symbol to embed C# code directly in HTML.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">@{
+</span></span><span class="line"><span class="cl">    var currentDate = DateTime.Now;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Today is: @currentDate<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="data-binding">Data Binding
+</h3><p>Data can be directly accessed from the Page Model in .cshtml view.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">@model MyRazorApp.Pages.IndexModel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome, @Model.Username!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Your User ID is: @Model.UserId<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="how-razor-pages-work">How Razor Pages Work
+</h2><p>Each page has its own <strong>Razor Page</strong> pair, with the .cshtml file for UI and .cshtml.cs file(Page Model) for logic.</p>
+<ol>
+<li>When a user requests a page like /index, the request routes to the IndexModel.</li>
+<li>The Page Model method(OnGet(), OnPost(), etc.) handles the request logic.</li>
+<li>The .cshtml view uses the model data to render the page, which is returned to the client.</li>
+</ol>
+<h2 id="when-to-use-razor-pages">When to use Razor Pages
+</h2><ul>
+<li>Suitable for page-based web apps, like imformation sites.</li>
+<li>Ideal for small to medium-sized project that needs rapid development.</li>
+</ul>
+<p>In summary, Razor Pages are especially useful for simpler, content-focused applications or project that requires faster setup and less complexity than MVC.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/asp.net/">ASP.NET</a>
+        
+            <a href="/tags/.net/">.NET</a>
+        
+            <a href="/tags/razor-pages/">Razor Pages</a>
+        
+            <a href="/tags/razor/">Razor</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Yu
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

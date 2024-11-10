@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>About Razor Pages in ASP.NET Core on Yumov0&#39;s Blog</title>
-        <link>http://localhost:2350/post/2024/razorpages/</link>
+        <link>http://localhost:1519/post/2024/about-razor-pages-in-asp.net-core/</link>
         <description>Recent content in About Razor Pages in ASP.NET Core on Yumov0&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yu</copyright>
-        <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:2350/post/2024/razorpages/index.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1519/post/2024/about-razor-pages-in-asp.net-core/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
